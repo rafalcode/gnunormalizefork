@@ -17,7 +17,7 @@ If it's only one file, well all its sample's volumeslevels are used to decide th
 
 However,if it's several files ...what sort of final result are you menat to give?
 
-Mixmoe is that all the files should be brought to same level so thatthey all sound the same.
+Mixmode is that all the files should be brought to same level so thatthey all sound the same.
 batch mode is where their relative differences are kept constant which would make theludestfilein the pack
 would decide theincrease in level of the other files.
 
@@ -83,5 +83,5 @@ unusually, when looking in riff.h, this appears at the top without any predefini
 so how cna some thing be announced and yet not throw up any errors in 
 incredibly enough however, riff.h and riff.c will compile to a object file!
 An unusual style quirk is the _riff_t is the normal struct, which as usual, you'll want to deal with in pointer terms.
-but instead of deined vairables based on a pointer of _riff_t, a new typedef, without the leading underscore is defined as a pointer
+but instead of defined vairables based on a pointer of _riff_t, a new typedef, without the leading underscore is defined as a pointer
 to it. A particular style, I expect.

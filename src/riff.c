@@ -67,14 +67,7 @@
 # define MIN(a,b) ((a)<(b)?(a):(b))
 #endif
 
-struct _riff_t
-{
-    FILE *fp; /* needed for stream writing */
-    int mode;
-    FILE *msg_stream; /* stream to which messages are written */
-};
-
-riff_t riff_open(const char *fname, int mode)
+riff_t riff_open(const char *fname, int mode) /* a convenience for riff_fdopen: grabs a file descriptor for it */
 {
     int fd, open_mode;
 
@@ -228,7 +221,7 @@ int riff_descend(riff_t riff, riff_chunk_t *chnk, riff_chunk_t *par_chnk, int se
         }
 
     } else {
-        /* don't search; just get the chunk that starts where we are */
+        /* don't search; just get the chunk that starts where we are: so I suppose that means no descending */
         ret = _read_chunk_start(riff, chnk);
     }
 
@@ -402,7 +395,7 @@ int main(int argc, char *argv[])
     if ((progname = strrchr(argv[0], '/')) == NULL)
         progname = argv[0];
     else
-        progname++;
+        progname++; /*progname then points to character after final fslash */
 
     if (argc < 2) {
         fprintf(stderr, "Usage: %s <file>\n", progname);

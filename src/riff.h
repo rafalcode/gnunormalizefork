@@ -30,6 +30,13 @@
 /* RIFF data types */
 typedef uint32_t fourcc_t;
 
+struct _riff_t /* pulled out of riff.c file, should not have been there */
+{
+    FILE *fp; /* needed for stream writing */
+    int mode;
+    FILE *msg_stream; /* stream to which messages are written */
+};
+
 typedef struct _riff_t *riff_t;
 
 typedef struct _riff_chunk_t
@@ -73,6 +80,7 @@ int riff_ascend(riff_t riff, riff_chunk_t *chnk);
 FILE *riff_stream(riff_t riff);
 FILE *riff_chunk_stream(riff_t riff, riff_chunk_t *chnk);
 
+/* somewhat overly complicated op here: */
 #define riff_fourcc_to_string(s,f) do{s[4]='\0';*((fourcc_t *)(s))=(f);}while(0)
 #define riff_string_to_fourcc(s) (*((fourcc_t *)s))
 

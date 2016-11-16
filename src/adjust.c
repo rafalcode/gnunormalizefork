@@ -228,6 +228,7 @@ static int _do_apply_gain(int read_fd, int write_fd, char *filename, double gain
         fprintf(stderr, _("%s: afOpenFD failed\n"), progname);
         goto error2;
     }
+    int fmt_vers; /* stuck this in due to errors, pretty pointless var, will be set to zero. Only one format WAV */
     int fmt_vars, af_fmt = afGetFileFormat(fhin, &fmt_vers); /* we obtain info on the input file */
 
     /* construct audiofile setup object */
